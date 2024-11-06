@@ -722,12 +722,6 @@ ___TEMPLATE_PARAMETERS___
       },
       {
         "simpleValueType": true,
-        "name": "performanceTiming",
-        "checkboxText": "performanceTiming",
-        "type": "CHECKBOX"
-      },
-      {
-        "simpleValueType": true,
         "name": "gaCookies",
         "checkboxText": "gaCookies",
         "type": "CHECKBOX"
@@ -818,7 +812,6 @@ return {
   anonymousTracking: anonymousTracking,
   contexts: {
     webPage: data.webPage,
-    performanceTiming: data.performanceTiming,
     gaCookies: data.gaCookies,
     clientHints: data.clientHints,
     geolocation: data.geolocation,
@@ -842,7 +835,7 @@ scenarios:
       collectorEndpoint: 'https://www.test.com',
 
       spLibrary: 'unpkg',
-      version: '3.5.0',
+      version: '4.0.1',
 
       appId: 'app-id',
       platform: 'custom',
@@ -872,7 +865,6 @@ scenarios:
       connectionTimeout: '500',
 
       webPage: true,
-      performanceTiming: false,
       gaCookies: false,
       clientHints: false,
       geolocation: false,
@@ -905,7 +897,6 @@ scenarios:
       },
       contexts: {
         webPage: mockData.webPage,
-        performanceTiming: mockData.performanceTiming,
         gaCookies: mockData.gaCookies,
         geolocation: mockData.geolocation,
         clientHints: mockData.clientHints,
@@ -933,7 +924,7 @@ scenarios:
       collectorEndpoint: 'test',
 
       spLibrary: 'jsDelivr',
-      version: '3.5.0',
+      version: '4.0.1',
 
       appId: 'my-site',
       platform: 'web',
@@ -960,7 +951,6 @@ scenarios:
       webPage: true,
       gaCookies: false,
       clientHints: false,
-      performanceTiming: false,
       geolocation: false,
       session: true,
     };
@@ -988,7 +978,6 @@ scenarios:
       anonymousTracking: false,
       contexts: {
         webPage: mockData.webPage,
-        performanceTiming: mockData.performanceTiming,
         gaCookies: mockData.gaCookies,
         geolocation: mockData.geolocation,
         clientHints: mockData.clientHints,
@@ -1048,7 +1037,6 @@ scenarios:
       webPage: true,
       gaCookies: false,
       clientHints: false,
-      performanceTiming: false,
       geolocation: false,
       session: false,
     };
@@ -1076,7 +1064,6 @@ scenarios:
       anonymousTracking: myConsentVar,
       contexts: {
         webPage: mockData.webPage,
-        performanceTiming: mockData.performanceTiming,
         gaCookies: mockData.gaCookies,
         geolocation: mockData.geolocation,
         clientHints: mockData.clientHints,
@@ -1099,7 +1086,7 @@ scenarios:
       collectorEndpoint: 'test',
 
       spLibrary: 'jsDelivr',
-      version: '3.5.0',
+      version: '4.0.1',
 
       appId: 'my-site',
       platform: 'web',
@@ -1128,7 +1115,6 @@ scenarios:
       webPage: true,
       gaCookies: false,
       clientHints: false,
-      performanceTiming: false,
       geolocation: false,
       session: false,
     };
@@ -1159,7 +1145,6 @@ scenarios:
       },
       contexts: {
         webPage: mockData.webPage,
-        performanceTiming: mockData.performanceTiming,
         gaCookies: mockData.gaCookies,
         geolocation: mockData.geolocation,
         clientHints: mockData.clientHints,
@@ -1187,7 +1172,7 @@ scenarios:
       collectorEndpoint: 'test',
 
       spLibrary: 'jsDelivr',
-      version: '3.5.0',
+      version: '4.0.1',
 
       appId: 'my-site',
       platform: 'web',
@@ -1216,7 +1201,6 @@ scenarios:
       webPage: true,
       gaCookies: false,
       clientHints: false,
-      performanceTiming: false,
       geolocation: false,
       session: false,
     };
@@ -1247,7 +1231,6 @@ scenarios:
       },
       contexts: {
         webPage: mockData.webPage,
-        performanceTiming: mockData.performanceTiming,
         gaCookies: mockData.gaCookies,
         geolocation: mockData.geolocation,
         clientHints: mockData.clientHints,
@@ -1274,3 +1257,5 @@ setup: ''
 ___NOTES___
 
 Created on 16/08/2019, 09:46:59
+
+
