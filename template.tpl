@@ -9,8 +9,8 @@ Google may provide), as modified from time to time.
 ___INFO___
 
 {
-  "displayName": "Snowplow v3 Settings",
-  "description": "The Snowplow v3 Settings variable can be used to easily apply a set of tracker configuration parameters to tags created with the Snowplow v3 tag template.",
+  "displayName": "Snowplow v4 Settings",
+  "description": "The Snowplow v4 Settings variable can be used to easily apply a set of tracker configuration parameters to tags created with the Snowplow v4 tag template.",
   "__wm": "VGVtcGxhdGUtQXV0aG9yX1Nub3dwbG93QW5hbHl0aWNzVjNWYXJpYWJsZS1TaW1vLUFoYXZh",
   "securityGroups": [],
   "categories": [
@@ -153,12 +153,12 @@ ___TEMPLATE_PARAMETERS___
               {
                 "type": "REGEX",
                 "args": [
-                  "^([3-9]|[1-9][0-9])\\..+$"
+                  "^4\\..+$"
                 ],
-                "errorMessage": "The sp.js library version number must be greater or equal to 3 (e.g. 3.1.5)."
+                "errorMessage": "The sp.js library version number must be greater or equal to 4 (e.g. 4.0.2)"
               }
             ],
-            "valueHint": "3.8.0"
+            "valueHint": "4.0.2"
           }
         ]
       }
@@ -743,8 +743,15 @@ ___TEMPLATE_PARAMETERS___
         "name": "session",
         "checkboxText": "session",
         "simpleValueType": true,
-        "help": "Adds client session context entity to events, provided that anonymous tracking is disabled. This option is only available since version 3.5 of the Snowplow JavaScript tracker.",
+        "help": "Adds client session context entity to events, provided that anonymous tracking is disabled.",
         "defaultValue": false
+      },
+      {
+        "type": "CHECKBOX",
+        "name": "performanceNavigationTiming",
+        "checkboxText": "performanceNavigationTiming",
+        "simpleValueType": true,
+        "help": "Attach a context entity with metrics regarding the browser\u0027s document navigation events."
       }
     ]
   }
@@ -816,6 +823,7 @@ return {
     clientHints: data.clientHints,
     geolocation: data.geolocation,
     session: data.session,
+    performanceNavigationTiming: data.performanceNavigationTiming,
   },
   trackerOptions: {
     trackerName: data.trackerName,
@@ -869,6 +877,7 @@ scenarios:
       clientHints: false,
       geolocation: false,
       session: false,
+      performanceNavigationTiming: false,
     };
 
     const expected = {
@@ -901,6 +910,7 @@ scenarios:
         geolocation: mockData.geolocation,
         clientHints: mockData.clientHints,
         session: mockData.session,
+        performanceNavigationTiming: mockData.performanceNavigationTiming,
       },
       trackerOptions: {
         trackerName: mockData.trackerName,
@@ -953,6 +963,7 @@ scenarios:
       clientHints: false,
       geolocation: false,
       session: true,
+      performanceNavigationTiming: false,
     };
 
     const expected = {
@@ -982,6 +993,7 @@ scenarios:
         geolocation: mockData.geolocation,
         clientHints: mockData.clientHints,
         session: mockData.session,
+        performanceNavigationTiming: mockData.performanceNavigationTiming,
       },
       trackerOptions: {
         trackerName: mockData.trackerName,
@@ -1068,6 +1080,7 @@ scenarios:
         geolocation: mockData.geolocation,
         clientHints: mockData.clientHints,
         session: mockData.session,
+        performanceNavigationTiming: mockData.performanceNavigationTiming,
       },
       trackerOptions: {
         trackerName: mockData.trackerName,
@@ -1149,6 +1162,7 @@ scenarios:
         geolocation: mockData.geolocation,
         clientHints: mockData.clientHints,
         session: mockData.session,
+        performanceNavigationTiming: mockData.performanceNavigationTiming,
       },
       trackerOptions: {
         trackerName: mockData.trackerName,
@@ -1203,6 +1217,7 @@ scenarios:
       clientHints: false,
       geolocation: false,
       session: false,
+      performanceNavigationTiming: false,
     };
 
     const expected = {
@@ -1235,6 +1250,7 @@ scenarios:
         geolocation: mockData.geolocation,
         clientHints: mockData.clientHints,
         session: mockData.session,
+        performanceNavigationTiming: mockData.performanceNavigationTiming,
       },
       trackerOptions: {
         trackerName: mockData.trackerName,
