@@ -1,0 +1,5 @@
+homepage: "https://snowplow.io"
+documentation: "https://docs.snowplow.io/docs/sources/trackers/google-tag-manager"
+versions:
+  - sha: 8abdf57a137fa225832292133596da871ce2a44a
+    changeNotes: Initial release.
