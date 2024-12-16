@@ -604,10 +604,6 @@ ___TEMPLATE_PARAMETERS___
           {
             "displayValue": "GET",
             "value": "get"
-          },
-          {
-            "displayValue": "Beacon",
-            "value": "beacon"
           }
         ],
         "displayName": "Dispatch Method",
