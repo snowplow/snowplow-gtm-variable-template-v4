@@ -700,6 +700,24 @@ ___TEMPLATE_PARAMETERS___
         ],
         "help": "Set the connection timeout for POST and GET requests.The recommended value is between 5000 and 10000.",
         "valueUnit": "milliseconds"
+      },
+      {
+        "type": "SELECT",
+        "name": "keepalive",
+        "displayName": "Enable keepalive",
+        "macrosInSelect": false,
+        "selectItems": [
+          {
+            "value": true,
+            "displayValue": "True"
+          },
+          {
+            "value": false,
+            "displayValue": "False"
+          }
+        ],
+        "simpleValueType": true,
+        "help": "The \u003ca href\u003d\"https://docs.snowplow.io/docs/sources/trackers/javascript-trackers/web-tracker/configuring-how-events-sent/#keepalive-option-for-collector-requests\"\u003ekeepalive\u003c/a\u003e feature in the fetch API indicates that the request should be allowed to outlive the webpage that initiated it. It enables requests to the Snowplow Collector to complete even if the page is closed or navigated away from."
       }
     ]
   },
@@ -813,6 +831,7 @@ return {
   maxPostBytes: data.maxPostBytes,
   connectionTimeout: data.connectionTimeout,
   anonymousTracking: anonymousTracking,
+  keepalive: data.keepalive,
   contexts: {
     webPage: data.webPage,
     gaCookies: data.gaCookies,
