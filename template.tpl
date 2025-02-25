@@ -321,6 +321,13 @@ ___TEMPLATE_PARAMETERS___
           }
         ],
         "help": "Please read \u003ca href\u003d\"https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/javascript-trackers/javascript-tracker/javascript-tracker-v3/tracker-setup/initialization-options/#anonymous-tracking\"\u003ethis documentation\u003c/a\u003e carefully before selecting Anonymous Tracking in order to understand the implications."
+      },
+      {
+        "type": "TEXT",
+        "name": "idService",
+        "displayName": "ID Service",
+        "simpleValueType": true,
+        "help": "Sets the \u003ca href\u003d\"https://docs.snowplow.io/docs/sources/trackers/javascript-trackers/web-tracker/browsers/#what-is-an-id-service-\"\u003eID Service\u003c/a\u003e endpoint."
       }
     ]
   },
@@ -585,6 +592,24 @@ ___TEMPLATE_PARAMETERS___
           }
         ],
         "valueUnit": "events"
+      },
+      {
+        "type": "SELECT",
+        "name": "synchronousCookieWrite",
+        "displayName": "Synchronously Write Cookies",
+        "macrosInSelect": false,
+        "selectItems": [
+          {
+            "value": true,
+            "displayValue": "True"
+          },
+          {
+            "value": false,
+            "displayValue": "False"
+          }
+        ],
+        "simpleValueType": true,
+        "help": "Controls whether cookies are \u003ca href\u003d\"https://docs.snowplow.io/docs/sources/trackers/javascript-trackers/web-tracker/configuring-how-events-sent/#synchronous-cookie-writes\"\u003ewritten synchronously\u003c/a\u003e."
       }
     ]
   },
@@ -832,6 +857,8 @@ return {
   connectionTimeout: data.connectionTimeout,
   anonymousTracking: anonymousTracking,
   keepalive: data.keepalive,
+  synchronousCookieWrite: data.synchronousCookieWrite,
+  idService: data.idService,
   contexts: {
     webPage: data.webPage,
     gaCookies: data.gaCookies,
