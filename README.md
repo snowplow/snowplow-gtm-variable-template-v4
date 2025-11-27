@@ -48,7 +48,7 @@ After pushing the changes, Google Tag Manager should update the template in the 
 
 ## Copyright and license
 
-Copyright (c) 2021 Snowplow Analytics Ltd.
+Copyright (c) 2021-2025 Snowplow Analytics Ltd.
 
 Licensed under the **[Apache License, Version 2.0](LICENSE)** (the "License");
 you may not use this software except in compliance with the License.
