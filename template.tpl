@@ -246,7 +246,9 @@ ___TEMPLATE_PARAMETERS___
             "name": "customPlatform",
             "type": "TEXT"
           }
-        ]
+        ],
+        "defaultValue": "web",
+        "help": "Platform the tracker runs on. (Default: Web)"
       }
     ]
   },
@@ -260,18 +262,20 @@ ___TEMPLATE_PARAMETERS___
         "macrosInSelect": false,
         "selectItems": [
           {
-            "displayValue": "True",
-            "value": true
-          },
-          {
             "displayValue": "False",
             "value": false
+          },
+          {
+            "value": true,
+            "displayValue": "True"
           }
         ],
         "displayName": "Respect \"Do Not Track\"",
         "simpleValueType": true,
         "name": "respectDoNotTrack",
-        "type": "SELECT"
+        "type": "SELECT",
+        "defaultValue": false,
+        "help": "Whether to respect browser DNT. (Default: False)"
       },
       {
         "type": "SELECT",
@@ -320,7 +324,7 @@ ___TEMPLATE_PARAMETERS___
             "defaultValue": false
           }
         ],
-        "help": "Please read \u003ca href\u003d\"https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/javascript-trackers/javascript-tracker/javascript-tracker-v3/tracker-setup/initialization-options/#anonymous-tracking\"\u003ethis documentation\u003c/a\u003e carefully before selecting Anonymous Tracking in order to understand the implications."
+        "help": "Please read \u003ca href\u003d\"https://docs.snowplow.io/docs/collecting-data/collecting-from-own-applications/javascript-trackers/javascript-tracker/javascript-tracker-v3/tracker-setup/initialization-options/#anonymous-tracking\"\u003ethis documentation\u003c/a\u003e carefully before selecting Anonymous Tracking in order to understand the implications. (Default: False)"
       },
       {
         "type": "TEXT",
@@ -337,32 +341,6 @@ ___TEMPLATE_PARAMETERS___
     "groupStyle": "ZIPPY_CLOSED",
     "type": "GROUP",
     "subParams": [
-      {
-        "alwaysInSummary": false,
-        "selectItems": [
-          {
-            "displayValue": "Cookie and Local Storage",
-            "value": "cookieAndLocalStorage"
-          },
-          {
-            "displayValue": "Cookie",
-            "value": "cookie"
-          },
-          {
-            "displayValue": "Local Storage",
-            "value": "localStorage"
-          },
-          {
-            "value": "none",
-            "displayValue": "None"
-          }
-        ],
-        "displayName": "State Storage Strategy",
-        "simpleValueType": true,
-        "name": "stateStorageStrategy",
-        "type": "SELECT",
-        "defaultValue": "cookieAndLocalStorage"
-      },
       {
         "help": "Set to \u003cstrong\u003eauto\u003c/strong\u003e to have Snowplow write the cookie on the root domain.",
         "enablingConditions": [
@@ -407,6 +385,33 @@ ___TEMPLATE_PARAMETERS___
         "name": "cookieName",
         "type": "TEXT",
         "help": "Use this field to set the first-party cookie name prefix of the tracker instance. The default value is different to the JavaScript tracker\u0027s default. If you want it to be the same, set this to \u003cstrong\u003e_sp_\u003c/strong\u003e"
+      },
+      {
+        "alwaysInSummary": false,
+        "selectItems": [
+          {
+            "displayValue": "Cookie and Local Storage",
+            "value": "cookieAndLocalStorage"
+          },
+          {
+            "displayValue": "Cookie",
+            "value": "cookie"
+          },
+          {
+            "displayValue": "Local Storage",
+            "value": "localStorage"
+          },
+          {
+            "value": "none",
+            "displayValue": "None"
+          }
+        ],
+        "displayName": "State Storage Strategy",
+        "simpleValueType": true,
+        "name": "stateStorageStrategy",
+        "type": "SELECT",
+        "defaultValue": "cookieAndLocalStorage",
+        "help": "This option sets the state storage strategy. (Default: Cookie and Local Storage)"
       },
       {
         "selectItems": [
@@ -485,7 +490,9 @@ ___TEMPLATE_PARAMETERS___
             "name": "customCookieLifetime",
             "type": "TEXT"
           }
-        ]
+        ],
+        "defaultValue": 63072000,
+        "help": "This option sets the cookie expiration. (Default: 2 years)"
       },
       {
         "type": "SELECT",
@@ -523,7 +530,8 @@ ___TEMPLATE_PARAMETERS___
             "type": "EQUALS"
           }
         ],
-        "defaultValue": "Lax"
+        "defaultValue": "Lax",
+        "help": "This option sets the cookie samesite attribute. (Default: Lax)"
       },
       {
         "type": "SELECT",
@@ -551,7 +559,9 @@ ___TEMPLATE_PARAMETERS___
             "paramValue": "cookieAndLocalStorage",
             "type": "EQUALS"
           }
-        ]
+        ],
+        "defaultValue": true,
+        "help": "This option sets the cookie secure attribute. (Default: True)"
       },
       {
         "type": "TEXT",
@@ -600,16 +610,17 @@ ___TEMPLATE_PARAMETERS___
         "macrosInSelect": false,
         "selectItems": [
           {
-            "value": true,
-            "displayValue": "True"
-          },
-          {
             "value": false,
             "displayValue": "False"
+          },
+          {
+            "value": true,
+            "displayValue": "True"
           }
         ],
         "simpleValueType": true,
-        "help": "Controls whether cookies are \u003ca href\u003d\"https://docs.snowplow.io/docs/sources/trackers/javascript-trackers/web-tracker/configuring-how-events-sent/#synchronous-cookie-writes\"\u003ewritten synchronously\u003c/a\u003e."
+        "help": "Controls whether cookies are \u003ca href\u003d\"https://docs.snowplow.io/docs/sources/trackers/javascript-trackers/web-tracker/configuring-how-events-sent/#synchronous-cookie-writes\"\u003ewritten synchronously\u003c/a\u003e. (Default: False)",
+        "defaultValue": false
       }
     ]
   },
@@ -652,7 +663,9 @@ ___TEMPLATE_PARAMETERS___
         "displayName": "Encode Into Base64",
         "simpleValueType": true,
         "name": "encodeBase64",
-        "type": "SELECT"
+        "type": "SELECT",
+        "help": "Whether to base64 encode event data. If unset, the tracker automatically uses false for POST requests and true for GET requests. Only set explicitly if you need to override this automatic behavior.",
+        "notSetText": "Auto"
       },
       {
         "enablingConditions": [
@@ -733,16 +746,17 @@ ___TEMPLATE_PARAMETERS___
         "macrosInSelect": false,
         "selectItems": [
           {
-            "value": true,
-            "displayValue": "True"
-          },
-          {
             "value": false,
             "displayValue": "False"
+          },
+          {
+            "value": true,
+            "displayValue": "True"
           }
         ],
         "simpleValueType": true,
-        "help": "The \u003ca href\u003d\"https://docs.snowplow.io/docs/sources/trackers/javascript-trackers/web-tracker/configuring-how-events-sent/#keepalive-option-for-collector-requests\"\u003ekeepalive\u003c/a\u003e feature in the fetch API indicates that the request should be allowed to outlive the webpage that initiated it. It enables requests to the Snowplow Collector to complete even if the page is closed or navigated away from."
+        "help": "The \u003ca href\u003d\"https://docs.snowplow.io/docs/sources/trackers/javascript-trackers/web-tracker/configuring-how-events-sent/#keepalive-option-for-collector-requests\"\u003ekeepalive\u003c/a\u003e feature in the fetch API indicates that the request should be allowed to outlive the webpage that initiated it. It enables requests to the Snowplow Collector to complete even if the page is closed or navigated away from. (Default: False)",
+        "defaultValue": false
       }
     ]
   },
@@ -1105,6 +1119,57 @@ scenarios:
     \ +\n      mockData.version +\n      '/dist/sp.min.js',\n  },\n};\n\n// Call runCode\
     \ to run the template's code.\nlet variableResult = runCode(mockData);\n\n// Verify\
     \ that the variable returns a result.\nassertThat(variableResult).isEqualTo(expected);\n"
+- name: Test that undefined values pass through correctly
+  code: |-
+    const mockData = {
+      trackerName: 'minimalTracker',
+      collectorEndpoint: 'https://collector.example.com',
+      spLibrary: 'jsDelivr',
+      version: '4.0.1',
+      appId: 'minimal-app',
+      // Omit fields
+      // platform
+      // respectDoNotTrack
+      // cookieLifetime
+      // cookieSecure
+      // synchronousCookieWrite
+      // encodeBase64
+      // keepalive
+      stateStorageStrategy: 'cookieAndLocalStorage',
+      cookieDomain: 'example.com',
+      cookieName: 'test',
+      cookieSameSite: 'Lax',
+      sessionCookieTimeout: '1800',
+      maxLocalStorageQueueSize: '1000',
+      eventMethod: 'post',
+      bufferSize: '1',
+      postPath: '/tp2',
+      maxPostBytes: '40000',
+      connectionTimeout: '5000',
+      anonymousTracking: 'anonymousTrackingFalse',
+      webPage: true,
+      gaCookies: false,
+      clientHints: false,
+      geolocation: false,
+      session: false,
+      performanceNavigationTiming: false,
+    };
+
+    const variableResult = runCode(mockData);
+
+    // Verify undefined values pass through
+    assertThat(variableResult.platform).isUndefined();
+    assertThat(variableResult.respectDoNotTrack).isUndefined();
+    assertThat(variableResult.cookieLifetime).isUndefined();
+    assertThat(variableResult.cookieSecure).isUndefined();
+    assertThat(variableResult.synchronousCookieWrite).isUndefined();
+    assertThat(variableResult.encodeBase64).isUndefined();
+    assertThat(variableResult.keepalive).isUndefined();
+
+    // Verify other fields work correctly
+    assertThat(variableResult.appId).isEqualTo('minimal-app');
+    assertThat(variableResult.stateStorageStrategy).isEqualTo('cookieAndLocalStorage');
+    assertThat(variableResult.cookieSameSite).isEqualTo('Lax');
 setup: ''
 
 
