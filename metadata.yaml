@@ -1,6 +1,11 @@
 homepage: "https://snowplow.io"
 documentation: "https://docs.snowplow.io/docs/sources/trackers/google-tag-manager"
 versions:
+  - sha: d72ff69506ef43db1484b7f8c27782da6e49cf88
+    changeNotes: |2
+      Update copyright to 2025 (#14)
+      Add credentials parameter for cross-origin cookie control (#13)
+      Add explicit defaults and help text to configuration fields (#7)
   - sha: 702ac474011e0d4140a4e659a4b6483f9b9d3fb5
     changeNotes: Rename 'idService' to 'cookieExtensionService'.
   - sha: 0a1bc7a73cb53ab80ecfb83d9514f3953d6cc5fa
