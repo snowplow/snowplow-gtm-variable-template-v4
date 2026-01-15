@@ -1,6 +1,8 @@
 homepage: "https://snowplow.io"
 documentation: "https://docs.snowplow.io/docs/sources/trackers/google-tag-manager"
 versions:
+  - sha: 9a1e1c6d699f4d185ac11f8c9f87c76f8e50e08f
+    changeNotes: Add browser context to predefined contexts.
   - sha: d72ff69506ef43db1484b7f8c27782da6e49cf88
     changeNotes: |2
       Update copyright to 2025 (#14)
