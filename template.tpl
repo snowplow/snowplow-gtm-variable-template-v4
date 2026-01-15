@@ -834,7 +834,7 @@ ___TEMPLATE_PARAMETERS___
         "name": "browserContext",
         "checkboxText": "browser",
         "simpleValueType": true,
-        "help": "Attach a context entity with dimensions regarding the browser"
+        "help": "Attach a context entity with dimensions regarding the browser: https://docs.snowplow.io/docs/sources/web-trackers/browsers/"
       }
     ]
   }
